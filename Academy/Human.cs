@@ -38,8 +38,12 @@ namespace Academy
 			return 
 				//split разделяет 'Academy.Type' на массив строк,
 				//и из этого массива мы берем последний элемент
-				$"{base.ToString().Split('.').Last()}:".PadRight(12) +
-				$"{LastName.PadRight(16)}{FirstName.PadRight(10)}{Age.ToString().PadRight(5)}";
+				$"{"─────┬─────\n".PadLeft(20)}" +
+				$"{base.ToString().Split('.').Last()}│".PadLeft(14) +
+				$"{LastName} " +
+				$"{FirstName}" + "\n" +
+				$"{"──────┼─────".PadLeft(19)}" + "\n" +
+				$"{"Возраст│".PadLeft(14)}{Age.ToString().PadRight(5)}" + "\n";
 			//PadRight() - выравнивает строку по левому борту. От Padding - наполнение. 
 		}
 	}

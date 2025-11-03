@@ -10,7 +10,7 @@ namespace Academy
 {
 	internal class Program
 	{
-		static readonly string delimiter = "\n=====================\n";
+		static readonly string delimiter = "─────────────────────────────";
 		static void Main(string[] args)
 		{
 #if INHERITANCE_1
@@ -46,7 +46,8 @@ namespace Academy
 			graduate.Info();
 
 #endif
-
+			//Dictionary<string, string> academy_human = new Dictionary<string, string>();
+			
 			//base-class pointers: Generalisation (Upcast - приведение дочернего объекта к базовому типу)
 			Human[] group =
 			{
@@ -59,9 +60,15 @@ namespace Academy
 			for(int i = 0; i < group.Length; i++)
 			{
 				//group[i].Info();
-				Console.WriteLine(group[i].ToString());
+				Console.WriteLine(group[i]);
 				Console.WriteLine(delimiter);
 			}
 		}
+		//static string transl(string input)
+		//{
+		//	switch(input)
+		//		case ""
+		//	return str;
+		//}
 	}
 }

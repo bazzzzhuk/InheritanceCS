@@ -38,7 +38,10 @@ namespace Academy
 		}
 		public override string ToString()
 		{
-			return base.ToString();
+			return base.ToString() + 
+				$"{"Специальность│".PadLeft(14)}{Speciality}" + "\n" +
+				$"{"Опыт│".PadLeft(14)}{Experience.ToString()}" + "\n" +
+				$"{"─────┴─────".PadLeft(19)}";
 		}
 	}
 }

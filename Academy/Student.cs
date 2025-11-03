@@ -53,7 +53,13 @@ namespace Academy
 		}
 		public override string ToString()
 		{
-			return base.ToString()+$"{Speciality.PadRight(16)}{Group.PadRight(8)}{Rating.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
+
+			return base.ToString()+
+				$"{"Специальность│".PadLeft(14)}{Speciality}" + "\n" +
+				$"{"Группа│".PadLeft(14)}{Group}" + "\n" +
+				$"{"Рейтинг│".PadLeft(14)}{Rating.ToString()}" + "\n" +
+				$"{"Посещаемость│".PadLeft(14)}{Attendance.ToString()}" + 
+				$"{((base.GetType().ToString().Split('.').Last())!="Graduate"?"\n"+"─────┴─────".PadLeft(19):"")}";
 		}
 	}
 }

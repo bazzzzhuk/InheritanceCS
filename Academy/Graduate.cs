@@ -34,5 +34,11 @@ namespace Academy
 			base.Info();
 			Console.WriteLine(Subject);
 		}
+		public override string ToString()
+		{
+			return base.ToString() + "\n" +
+				$"{"Тема Диплома│".PadLeft(14)} {Subject.PadRight(25)}" + "\n" +
+				$"{"─────┴─────".PadLeft(19)}";
+		}
 	}
 }
