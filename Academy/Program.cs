@@ -11,6 +11,7 @@ namespace Academy
 {
 	internal class Program
 	{
+		static string path = @"L:\static new\Group_HW_1.txt";
 		static readonly string delimiter = "─────────────────────────────";
 		static void Main(string[] args)
 		{
@@ -64,17 +65,17 @@ namespace Academy
 				Console.WriteLine(group[i]);
 				Console.WriteLine(delimiter);
 			}
-
-			string path = @"L:\static new\Group_HW_1.txt";
-			using (StreamWriter sw = File.CreateText(path))
+			Save(group);
+		}
+		static void Save(Human[] group)
+		{
+			using (StreamWriter sw = File.CreateText(Program.path))
 			{
 				foreach (Human human in group)
 				{
 					sw.WriteLine(human);
 				}
 			}
-
-
 		}
 	}
 }
