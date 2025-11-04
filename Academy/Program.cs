@@ -64,24 +64,17 @@ namespace Academy
 				Console.WriteLine(group[i]);
 				Console.WriteLine(delimiter);
 			}
-			string path = @"L:\static new\Group_HW_1.txt";
 
-			// Create a file to write to.
+			string path = @"L:\static new\Group_HW_1.txt";
 			using (StreamWriter sw = File.CreateText(path))
 			{
-				foreach (Human student in group)
+				foreach (Human human in group)
 				{
-					sw.WriteLine(student);
+					sw.WriteLine(human);
 				}
 			}
 
 
 		}
-		//static string transl(string input)
-		//{
-		//	switch(input)
-		//		case ""
-		//	return str;
-		//}
 	}
 }
