@@ -61,6 +61,8 @@ namespace Academy
 			};
 			Print(group);
 			Save(group, path);
+			Human[]group2 = Load(path);
+			Print(group2);
 		}
 		static void Print(Human[] group)
 		{
@@ -79,6 +81,22 @@ namespace Academy
 					sw.WriteLine(human);
 				}
 			}
+		}
+		static Human[] Load(string path)
+		{
+			Human[] group = null;
+			using (StreamReader sr = new StreamReader(path))
+			{
+				while (sr.EndOfStream)
+				{
+					string line = sr.ReadLine();
+					if (line.Contains("│")) 
+					{
+
+					}
+				}
+			}
+			return group;
 		}
 	}
 }
