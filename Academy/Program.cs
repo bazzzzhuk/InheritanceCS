@@ -59,13 +59,16 @@ namespace Academy
 				new Student("Vercetty", "Tommy", 30, "Theft", "Vice", 90, 95),
 				new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 25)
 			};
+			Print(group);
+			Save(group, path);
+		}
+		static void Print(Human[] group)
+		{
 			for (int i = 0; i < group.Length; i++)
 			{
-				//group[i].Info();
 				Console.WriteLine(group[i]);
 				Console.WriteLine(delimiter);
 			}
-			Save(group, path);
 		}
 		static void Save(Human[] group, string path)
 		{
