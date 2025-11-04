@@ -65,11 +65,11 @@ namespace Academy
 				Console.WriteLine(group[i]);
 				Console.WriteLine(delimiter);
 			}
-			Save(group);
+			Save(group, path);
 		}
-		static void Save(Human[] group)
+		static void Save(Human[] group, string path)
 		{
-			using (StreamWriter sw = File.CreateText(Program.path))
+			using (StreamWriter sw = File.CreateText(path))
 			{
 				foreach (Human human in group)
 				{
