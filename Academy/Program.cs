@@ -2,6 +2,7 @@
 //#define INHERITANCE_2
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,7 +48,7 @@ namespace Academy
 
 #endif
 			//Dictionary<string, string> academy_human = new Dictionary<string, string>();
-			
+
 			//base-class pointers: Generalisation (Upcast - приведение дочернего объекта к базовому типу)
 			Human[] group =
 			{
@@ -57,12 +58,24 @@ namespace Academy
 				new Student("Vercetty", "Tommy", 30, "Theft", "Vice", 90, 95),
 				new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 25)
 			};
-			for(int i = 0; i < group.Length; i++)
+			for (int i = 0; i < group.Length; i++)
 			{
 				//group[i].Info();
 				Console.WriteLine(group[i]);
 				Console.WriteLine(delimiter);
 			}
+			string path = @"L:\static new\Group_HW_1.txt";
+
+			// Create a file to write to.
+			using (StreamWriter sw = File.CreateText(path))
+			{
+				foreach (Human student in group)
+				{
+					sw.WriteLine(student);
+				}
+			}
+
+
 		}
 		//static string transl(string input)
 		//{
