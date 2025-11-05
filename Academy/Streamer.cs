@@ -29,9 +29,9 @@ namespace Academy
 			SetDirectory();
 			StreamWriter writer = new StreamWriter(filename);
 
-			foreach (Human human in group)
+			for (int i=0; i<group.Length;i++)
 			{
-				writer.WriteLine(human.ToStringCSV());
+				writer.WriteLine(group[i].ToStringCSV());
 			}
 			writer.Close();
 			System.Diagnostics.Process.Start("notepad", filename);
