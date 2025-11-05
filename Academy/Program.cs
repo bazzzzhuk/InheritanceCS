@@ -1,6 +1,6 @@
 ﻿//#define INHERITANCE_1
 //#define INHERITANCE_2
-//#define WRITE_TO_FILE
+#define WRITE_TO_FILE
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -49,6 +49,7 @@ namespace Academy
 			graduate.Info();
 
 #endif
+			Streamer streamer = new Streamer();
 #if WRITE_TO_FILE
 			//Dictionary<string, string> academy_human = new Dictionary<string, string>();
 
@@ -61,33 +62,13 @@ namespace Academy
 				new Student("Vercetty", "Tommy", 30, "Theft", "Vice", 90, 95),
 				new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 25)
 			};
-			Print(group);
-			Save(group, "group.txt");
-			Human[]group2 = Load(path);
-			Print(group2);
+			streamer.Print(group);
+			streamer.Save(group, "group.txt");
+			Human[]group2 = streamer.Load("group.txt");
+			streamer.Print(group2);
 #endif
-			Human[] group2 = Load("group.txt");
-			Print(group2);
-		}
-		static void Print(Human[] group)
-		{
-			for (int i = 0; i < group.Length; i++)
-			{
-				Console.WriteLine(group[i]);
-				Console.WriteLine(delimiter);
-			}
-		}
-		static void Save(Human[] group, string filename)
-		{
-			StreamWriter writer = new StreamWriter(filename);	
-			
-				foreach (Human human in group)
-				{
-					writer.WriteLine(human.ToStringCSV());
-				}
-				writer.Close();
-			System.Diagnostics.Process.Start("notepad", filename);
-			
+			//Human[] group2 = streamer.Load("group.txt");
+			//streamer.Print(group2);
 		}
 		//static Human[] Load(string filename)
 		//{
@@ -105,41 +86,7 @@ namespace Academy
 		//	}
 		//	return group;
 		//}
-		static Human[] Load(string filename)
-		{
-			List<Human> group = new List<Human>();	
-			StreamReader reader = new StreamReader(filename);
-			try
-			{
-				while (!reader.EndOfStream)
-				{
-					string buffer =reader.ReadLine();
-					string[] values = buffer.Split(',');
-					//Human human = HumanFactory(values.First());
-					//human.Init(values);
-					//group.Add(human);
-					group.Add(HumanFactory(values[0]).Init(values));
-				}
-			}
-			catch(Exception ex)
-			{
-			}
 
-			reader.Close();
-			return group.ToArray();
-		}
-		static Human HumanFactory(string type)
-		{
-			Human human = null;
-			switch (type)
-			{
-				case "Human": human = new Human("", "", 0);break;
-				case "Student": human = new Student("", "", 0, "", "", 0,0);break;
-				case "Graduate": human = new Graduate("", "", 0,"", "", 0,0,"");break;
-				case "Teacher": human = new Teacher("", "", 0, "", 0);break;
-				
-			}
-			return human;
-		}
+		
 	}
 }
