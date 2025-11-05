@@ -46,5 +46,11 @@ namespace Academy
 				$"{"Возраст│".PadLeft(14)}{Age.ToString().PadRight(5)}" + "\n";
 			//PadRight() - выравнивает строку по левому борту. От Padding - наполнение. 
 		}
+		public virtual string ToStringCSV()
+		{
+			return 
+				this.GetType().ToString().Split('.').Last()+","
+				+$"{LastName},{FirstName},{Age}";	
+		}
 	}
 }

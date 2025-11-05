@@ -61,5 +61,10 @@ namespace Academy
 				$"{"Посещаемость│".PadLeft(14)}{Attendance.ToString()}" + 
 				$"{((base.GetType().ToString().Split('.').Last())!="Graduate"?"\n"+"─────┴─────".PadLeft(19):"")}";
 		}
+		public override string ToStringCSV()
+		{
+			return base.ToStringCSV()
+				+$",{Speciality},{Group},{Rating},{Attendance}";
+		}
 	}
 }

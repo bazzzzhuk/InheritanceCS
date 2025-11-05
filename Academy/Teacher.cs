@@ -43,5 +43,9 @@ namespace Academy
 				$"{"Опыт│".PadLeft(14)}{Experience.ToString()}" + "\n" +
 				$"{"─────┴─────".PadLeft(19)}";
 		}
+		public override string ToStringCSV()
+		{
+			return base.ToStringCSV()+$",{Speciality},{Experience}";
+		}
 	}
 }

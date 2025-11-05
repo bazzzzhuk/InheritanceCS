@@ -40,5 +40,9 @@ namespace Academy
 				$"{"Тема Диплома│".PadLeft(14)}{Subject.PadRight(25)}" + "\n" +
 				$"{"─────┴─────".PadLeft(19)}";
 		}
+		public override string ToStringCSV()
+		{
+			return base.ToStringCSV()+$",{Subject}";	
+		}
 	}
 }

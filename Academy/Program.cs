@@ -60,7 +60,7 @@ namespace Academy
 				new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 25)
 			};
 			Print(group);
-			Save(group, path);
+			Save(group, "group.txt");
 			Human[]group2 = Load(path);
 			Print(group2);
 		}
@@ -72,15 +72,17 @@ namespace Academy
 				Console.WriteLine(delimiter);
 			}
 		}
-		static void Save(Human[] group, string path)
+		static void Save(Human[] group, string filename)
 		{
-			using (StreamWriter sw = File.CreateText(path))
-			{
+			StreamWriter writer = new StreamWriter(filename);	
+			
 				foreach (Human human in group)
 				{
-					sw.WriteLine(human);
+					writer.WriteLine(human.ToStringCSV());
 				}
-			}
+				writer.Close();
+			System.Diagnostics.Process.Start("notepad", filename);
+			
 		}
 		static Human[] Load(string path)
 		{
