@@ -13,11 +13,9 @@ namespace Geometry_CS
 {
 	abstract internal class Shape
 	{
-		//protected
-
-		int start_x;
-		int start_y;
-		int line_width;
+		public int start_x;
+		public int start_y;
+		public int line_width;
 
 		public static int MIN_START_X = 100;
 		public static int MIN_START_Y = 100;
@@ -77,16 +75,16 @@ namespace Geometry_CS
 
 		public abstract double get_area();
 		public abstract double get_perimetr();
-		public abstract void draw();
+		public abstract void draw(Graphics g, Color color);
 
 
-		public virtual void info()
+		public virtual void info(Graphics g, Color color)
 		{
 			Console.WriteLine($"Площадь квадрата: " + get_area());
 			Console.WriteLine();
 			Console.WriteLine($"Периметр квадрата: " + get_perimetr());
 			Console.WriteLine();
-			draw();
+			draw(g, color);
 		}
 	};
 }
