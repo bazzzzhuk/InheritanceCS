@@ -58,8 +58,6 @@ namespace AbstractGeometry
 		public static void Flip_ellipse(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color.DarkOliveGreen, 1);
-			Color color = new Color();
-			Brush brush = new SolidBrush(color);
 			// Create points that define polygon.
 			PointF point1 = new PointF(325.0F, 2.5F);
 			PointF point2 = new PointF(375.0F, 2.5F);
@@ -83,7 +81,9 @@ namespace AbstractGeometry
 				for (float i = 0; i < 361; i = i + 2)
 				{
 					Random rand = new Random();
+					Color color = new Color();
 					color = Color.FromArgb(rand.Next());
+					Brush brush = new SolidBrush(color);
 					Matrix myMatrix = new Matrix();
 					PointF rotatePoint = new PointF(350, 300.0f);
 					myMatrix.RotateAt(i, rotatePoint, MatrixOrder.Append);
