@@ -9,6 +9,7 @@ using System.Runtime.InteropServices; //DLLImport
 using System.Windows.Forms;
 using System.Data;
 using System.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 
 namespace AbstractGeometry
@@ -57,8 +58,8 @@ namespace AbstractGeometry
 		public static void Flip_ellipse(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color.DarkOliveGreen, 1);
-			Brush brush = new SolidBrush(Color.DarkGreen);
-
+			Color color = new Color();
+			Brush brush = new SolidBrush(color);
 			// Create points that define polygon.
 			PointF point1 = new PointF(325.0F, 2.5F);
 			PointF point2 = new PointF(375.0F, 2.5F);
@@ -77,11 +78,12 @@ namespace AbstractGeometry
 				 point6,
 				 point7
 			 };
-			Random random = new Random();
 			while (true)
 			{
 				for (float i = 0; i < 361; i = i + 2)
 				{
+					Random rand = new Random();
+					color = Color.FromArgb(rand.Next());
 					Matrix myMatrix = new Matrix();
 					PointF rotatePoint = new PointF(350, 300.0f);
 					myMatrix.RotateAt(i, rotatePoint, MatrixOrder.Append);
