@@ -58,7 +58,6 @@ namespace AbstractGeometry
 		public static void Flip_ellipse(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color.DarkOliveGreen, 1);
-			// Create points that define polygon.
 			PointF point1 = new PointF(325.0F, 2.5F);
 			PointF point2 = new PointF(375.0F, 2.5F);
 			PointF point3 = new PointF(375.0F, 125.0F);
