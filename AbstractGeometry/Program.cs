@@ -25,14 +25,23 @@ namespace AbstractGeometry
 				Console.WindowWidth, Console.WindowHeight
 				);
 			PaintEventArgs e = new PaintEventArgs(graphics, window_rect);
-			//e.Graphics.DrawRectangle(new Pen(Color.Plum,15), 300, 200, 500, 300);
+			e.Graphics.DrawRectangle(new Pen(Color.Plum,15), 300, 200, 500, 300);
 			//Rectangle rectangle = new Rectangle(200, 200, 300, 300, 3, Color.DarkTurquoise);
 			//rectangle.Info(e);
 			// Set world transform of graphics object to rotate.
 			Pen myPen = new Pen(Color.Blue, 10);
 			//System.Drawing.Drawing2D.Matrix rotateMatrix = new System.Drawing.Drawing2D.Matrix();
 			//Flip_cube(e);
-			Flip_ellipse(e);
+			//Flip_ellipse(e);
+			Square square = new Square(350, 500,100,550,Color.Azure);
+			square.Info(e);
+			Circle circle = new Circle(100, 350, 350, 5, Color.Yellow);
+			circle.Info(e);
+			IsoscelesTriangle triange = new IsoscelesTriangle(130, 140, 300, 350, 5, Color.Ivory);
+			triange.Info(e);
+			EquilateralTriangle equ = new EquilateralTriangle(50,700,600, 4, Color.Green);
+			equ.Info(e);
+
 		}
 		[DllImport("kernel32.dll")]
 		public static extern IntPtr GetConsoleWindow();
@@ -77,7 +86,7 @@ namespace AbstractGeometry
 			 };
 			while (true)
 			{
-				for (float i = 0; i < 361; i = i + 2)
+				for (float i = 0; i < 361; i = i + 1)
 				{
 					Random rand = new Random();
 					Color color = new Color();

@@ -35,7 +35,7 @@ namespace AbstractGeometry
 		public override double GetPerimetr() => 2*(Height+Width);
 		public override void Draw(PaintEventArgs e)
 		{
-			Pen pen = new Pen(Color,10);
+			Pen pen = new Pen(Color,LineWidth);
 			SolidBrush brush = new SolidBrush(Color);
 			e.Graphics.DrawRectangle(pen,StartX,StartY,(float)Width, (float)Height);
 			e.Graphics.FillRectangle(brush, StartX, StartY, (float)Width, (float)Height);
