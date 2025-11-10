@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define ABSTRACT
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+
 
 
 namespace AbstractGeometry
@@ -25,14 +27,15 @@ namespace AbstractGeometry
 				Console.WindowWidth, Console.WindowHeight
 				);
 			PaintEventArgs e = new PaintEventArgs(graphics, window_rect);
-			e.Graphics.DrawRectangle(new Pen(Color.Plum,15), 300, 200, 500, 300);
-			//Rectangle rectangle = new Rectangle(200, 200, 300, 300, 3, Color.DarkTurquoise);
-			//rectangle.Info(e);
+#if ABSTRACT
+			//e.Graphics.DrawRectangle(new Pen(Color.Plum,15), 300, 200, 500, 300);
 			// Set world transform of graphics object to rotate.
 			Pen myPen = new Pen(Color.Blue, 10);
 			//System.Drawing.Drawing2D.Matrix rotateMatrix = new System.Drawing.Drawing2D.Matrix();
 			//Flip_cube(e);
 			//Flip_ellipse(e);
+			Rectangle rectangle = new Rectangle(600, 600, 400, 300, 3, Color.DarkTurquoise);
+			rectangle.Info(e);
 			Square square = new Square(350, 500,100,550,Color.Azure);
 			square.Info(e);
 			Circle circle = new Circle(100, 350, 350, 5, Color.Yellow);
@@ -41,7 +44,20 @@ namespace AbstractGeometry
 			triange.Info(e);
 			EquilateralTriangle equ = new EquilateralTriangle(50,700,600, 4, Color.Green);
 			equ.Info(e);
-
+#endif
+			Shape[] shapes =
+				{
+				new Rectangle(600, 600, 400, 300, 3, Color.DarkBlue),
+				new Square(350, 500,100,550,Color.Azure),
+				new Circle(100, 350, 350, 5, Color.Yellow),
+				new IsoscelesTriangle(130, 140, 300, 350, 5, Color.Ivory),
+				new EquilateralTriangle(50,700,600, 4, Color.Green)
+			};
+			for (int i = 0; i < shapes.Length; i++)
+			{
+				if (!(shapes[i] is IHaveDiagonale))
+				shapes[i].Draw(e);
+			}
 		}
 		[DllImport("kernel32.dll")]
 		public static extern IntPtr GetConsoleWindow();
