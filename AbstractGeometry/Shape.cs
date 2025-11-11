@@ -18,6 +18,8 @@ namespace AbstractGeometry
 		public static readonly int MAX_LINE_WIDTH = 50;
 		public static readonly double MIN_SIZE = 20;
 		public static readonly double MAX_SIZE = 800;
+		public static readonly int MIN_FONT = 8;
+		public static readonly int MAX_FONT = 20;
 
 
 		int startx;
@@ -51,6 +53,10 @@ namespace AbstractGeometry
 		public double FilterSize(double value) =>
 			value<MIN_SIZE?MIN_SIZE:
 			value > MAX_SIZE?MAX_SIZE:	
+			value;
+		public int FilterFont(int value) =>
+			value < MIN_FONT ? MIN_FONT :
+			value > MAX_FONT ? MAX_FONT :
 			value;
 		public Color Color { get; set; }
 

@@ -50,6 +50,7 @@
     <Compile Include="EquilateralTriangle.cs" />
     <Compile Include="IHaveDiagonale.cs" />
     <Compile Include="IHaveDiameter.cs" />
+    <Compile Include="IHaveHeight.cs" />
     <Compile Include="IsoscelesTriangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
