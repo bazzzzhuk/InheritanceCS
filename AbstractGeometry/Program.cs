@@ -49,13 +49,13 @@ namespace AbstractGeometry
 				{
 				new Rectangle(600, 600, 400, 300, 3, Color.DarkBlue),
 				new Square(350, 500,100,550,Color.Azure),
-				new Circle(100, 350, 350, 5, Color.Yellow),
+				new Circle(150, 450, 450, 5, Color.Yellow),
 				new IsoscelesTriangle(130, 140, 300, 350, 5, Color.Ivory),
 				new EquilateralTriangle(50,700,600, 4, Color.Green)
 			};
 			for (int i = 0; i < shapes.Length; i++)
 			{
-				if (!(shapes[i] is IHaveDiagonale))
+				if ((shapes[i] is IHaveDiameter))
 				shapes[i].Draw(e);
 			}
 		}
