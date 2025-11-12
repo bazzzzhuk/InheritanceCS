@@ -55,7 +55,8 @@ namespace AbstractGeometry
 			};
 			for (int i = 0; i < shapes.Length; i++)
 			{
-				if (!(shapes[i] is IHaveDiagonale))
+				//if (!(shapes[i] is IHaveDiagonale IHaveHeight))
+				if (shapes[i] is IHaveDiameter || shapes[i] is IHaveDiagonale)
 				shapes[i].Draw(e);
 			}
 		}
