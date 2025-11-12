@@ -50,13 +50,13 @@ namespace AbstractGeometry
 				new Rectangle(600, 600, 400, 300, 5, Color.DarkBlue),
 				new Square(350, 500,100,15,Color.Azure),
 				new Circle(333, 650, 450, 5, Color.Yellow),
-				new IsoscelesTriangle(330, 240, 150, 550, 5, Color.Ivory),
+				new IsoscelesTriangle(330, 540, 150, 550, 5, Color.Ivory),
 				new EquilateralTriangle(250,500,800, 4, Color.Green)
 			};
 			for (int i = 0; i < shapes.Length; i++)
 			{
 				//if (!(shapes[i] is IHaveDiagonale IHaveHeight))
-				if (shapes[i] is IHaveDiameter || shapes[i] is IHaveDiagonale)
+				if (!(shapes[i] is IHaveDiameter|| shapes[i] is IHaveDiagonale))
 				shapes[i].Draw(e);
 			}
 		}
